@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CondoriApazaJhonatan_2doParcial.Models.libroModelo.Libro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Principal</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Libro</a>
+</p>
+<table class="table" style=".table{ border: 5px solid white; }">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Editorial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edicion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Año)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editorial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Año)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Isbn">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Isbn">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Isbn">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
